@@ -2,6 +2,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -88,5 +89,9 @@ public class Testing extends parameters {
         WebElement LowestPriceButton = driver.findElement(By.xpath("//div[@data-testid='srp_sort_LOWEST_PRICE']"));
         LowestPriceButton.click();
         checkSort();
+    }
+    @AfterTest
+    public void closing() {
+    	driver.quit();
     }
 }
